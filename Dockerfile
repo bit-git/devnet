@@ -1,6 +1,6 @@
 FROM python:alpine3.12
 
-RUN apk update && apk upgrade && apk add nano bash gcc musl-dev libc-dev libc6-compat linux-headers build-base git libffi-dev openssl-dev curl libxml2-dev libxslt-dev
+RUN apk update && apk upgrade && apk add vim nano bash gcc musl-dev libc-dev libc6-compat linux-headers build-base git libffi-dev openssl-dev curl libxml2-dev libxslt-dev
 
 WORKDIR /root/workspace/
 
