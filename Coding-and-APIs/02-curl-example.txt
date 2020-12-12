@@ -1,0 +1,50 @@
+Open a Terminal window and run this example to see the response:
+$ curl  https://deckofcardsapi.com/api/deck/new/
+
+When you have Python installed in your terminal, you can get nicer formatted JSON 
+by piping the output to the Python JSON tool like so:
+$ curl https://deckofcardsapi.com/api/deck/new/ | python -m json.tool
+
+You should see this response, which is a newly shuffled deck of cards with a unique ID, deck_id. Your deck_id value will be different from ft1bpglgquqr. You see that 52 cards remain in the deck and the deck remains unshuffled in the JSON response.
+
+{
+   "deck_id":"ft1bpglgquqr",
+   "remaining":52,
+   "success":true,
+   "shuffled":false
+}
+
+You can shuffle that exact deck of cards with a request that contains the deck_id:
+$ curl https://deckofcardsapi.com/api/deck/ft1bpglgquqr/shuffle/
+
+Now the JSON response shows the deck has been shuffled by indicating true for "shuffled".
+
+{
+   "deck_id":"ft1bpglgquqr",
+   "remaining":52,
+   "success":true,
+   "shuffled":true
+}
+
+With the freshly-shuffled deck, you can use the REST API to draw three cards by using 
+a query parameter, ?count=3, on the draw resource like so. Remember to substitute your 
+deck_id for ft1bpqlgquqr in the request URL.
+
+$ curl https://deckofcardsapi.com/api/deck/ft1bpglgquqr/draw/?count=3 | python -m json.tool
+
+
+===========
+WEBEX Teams
+===========
+Once you have signed up and logged in to the Cisco Webex for Developers site you 
+can get your API token from the Authentication section on the Getting Started page.
+
+Go to the API Reference > People > Get My Own Details to find your personId on that web page:
+Y2lzY29zcGFyazovL3VzL1BFT1BMRS83MDY4MmE4My04MzdlLTQzZDgtYTBhYS0xNDVlYjdkZmY5ODc
+
+Now, open a Terminal window and run this example to send a "Hi from DevNet" message. 
+
+Replace the toPersonEmail=someone@cisco.com with the email associated with your Webex Teams account, 
+and put in your token value instead of MDg...zRh4:
+
+$ curl https://webexapis.com/v1/messages -X POST -H "Authorization:Bearer MDg...zRh4" --data "toPersonEmail=someone@cisco.com" --data "text=Hi%20from%20DevNet"

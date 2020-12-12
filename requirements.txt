@@ -1,0 +1,14 @@
+requests 
+flask 
+ansible 
+ipython 
+ciscosparkapi 
+ncclient 
+netmiko 
+pyang 
+urllib3 
+xmltodict 
+PrettyTable
+
+
+
