@@ -1,3 +1,7 @@
+============
+APIs Example
+============
+
 Open a Terminal window and run this example to see the response:
 $ curl  https://deckofcardsapi.com/api/deck/new/
 
@@ -31,6 +35,28 @@ a query parameter, ?count=3, on the draw resource like so. Remember to substitut
 deck_id for ft1bpqlgquqr in the request URL.
 
 $ curl https://deckofcardsapi.com/api/deck/ft1bpglgquqr/draw/?count=3 | python -m json.tool
+
+
+===========
+Meraki API
+===========
+# Get ORGs
+curl --request GET -L \
+  --url https://api.meraki.com/api/v1/organizations \
+  --header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0'
+
+# Get ORG
+curl --request GET -L \
+  --url https://api.meraki.com/api/v1/organizations/549236 \
+  --header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0'
+
+# Get Networks
+curl --request GET -L \
+  --url https://api.meraki.com/api/v1/organizations/549236/networks \
+  --header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0'
+
+
+
 
 
 ===========
